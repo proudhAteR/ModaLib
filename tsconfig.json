@@ -1,0 +1,11 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "ESNext",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": false,
+        "outDir": "./public/javascripts/"
+    }
+}
