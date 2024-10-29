@@ -10,19 +10,20 @@
 </head>
 
 <body>
-    <button id="1" trigger-attribute type="button" class="btn modal-second-btn">Primary</button>
-    <div class="modal-container :1">
+    <button id="1" data-trigger type="button" class="btn modal-second-btn">Primary</button>
+
+    <div data-animation='fade' class="modal-container by:1">
         <div class="modal-content">
             <h1>Modal</h1>
-            <p>
+            <p class="text">
                 The Web Developer online test assesses knowledge of front-end web development skills (HTML, CSS, and
                 JavaScript) through a series of live coding questions that test the ability to implement and style a
-                user interface. Tasks on this test are executed inside the Google Chrome web browser.
+                user interface.
             </p>
             <div class="btn_grp">
                 <div class="grp_content">
-                    <button type="button" class="btn modal-second-btn">Learn More</button>
-                    <button closing-attribute type="button" class="btn modal-estrella-btn">Close</button>
+                    <button class="btn modal-second-btn">Learn More</button>
+                    <button closing-attribute class="btn modal-prim-btn">Close</button>
                 </div>
             </div>
         </div>

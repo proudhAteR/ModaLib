@@ -10,13 +10,13 @@
 }
 
 @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
+  from {
+    opacity: 1;
   }
+  to {
+    opacity: 0;
+  }
+}
 :root {
   --background: #fff;
   --shadow: rgba(0, 0, 0, 0.2);
@@ -51,17 +51,17 @@
   overflow: auto;
 }
 
-.show{
-    display: flex;
-    animation: fadeIn var(--fade-duration) ease-in-out;
+.show_fade {
+  display: flex;
+  animation: fadeIn var(--fade-duration) ease-in-out;
 }
 
 .fade {
   animation: fadeOut var(--fade-duration) ease-in-out;
 }
 
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
 
 .modal-content {
@@ -75,11 +75,13 @@
 
 @media (max-width: 600px) {
   .modal-content {
-    width: 360px;
+    max-width: 90%;
+    max-height: 50%;
+    overflow: scroll;
   }
 }
 
-.modal-content p {
+.modal-content .text {
   font-size: 0.95rem;
   opacity: 0.6;
   padding-bottom: 8px;
