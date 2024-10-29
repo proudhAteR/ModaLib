@@ -1,11 +1,15 @@
 {
-    "compileOnSave": true,
-    "compilerOptions": {
-        "target": "ESNext",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": false,
-        "outDir": "./public/javascripts/"
-    }
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "ESNext",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "outDir": "Public/javascript",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "auto",
+    "module": "NodeNext",
+    "strict": true
+  }
 }
