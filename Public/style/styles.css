@@ -133,3 +133,8 @@
   background-color: var(--estrella-btn-color);
   color: var(--colored-btn-text);
 }
+
+.banana{
+  display: flex;
+  justify-content: space-between;
+}
