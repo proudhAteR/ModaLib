@@ -1,45 +1,36 @@
 import { searchModal as findModal, generateModal, hide, show, } from "./modals.js";
-let triggerButton;
+export let triggerButton;
 let triggeredElement;
 document.body.addEventListener("click", (e) => {
     let target = e.target;
-    if (target.closest("[data-alert]")) {
-        defaultModals(target);
-    }
-    if (target.closest("[data-confirm]")) {
-        defaultModals(target);
-    }
     if (target.closest("[data-trigger]")) {
         triggerButton = target;
         triggeredElement = findModal();
+        if (!target.dataset.trigger.includes("custom")) {
+            defaultModals(target);
+        }
         if (triggeredElement.classList.contains(`by:${triggerButton.id}`)) {
             show(triggeredElement);
         }
     }
-    triggeredElement = findModal();
-    target = e.target;
     if (target.closest("[closing-attribute]")) {
         hide(triggeredElement);
     }
 });
 function defaultModals(target) {
     triggerButton = target;
-    triggeredElement = findModal();
-    let holder = findHolder(triggerButton);
-    if (holder) {
-        if (!holder.classList.contains("gen")) {
-            holder.classList.add("gen");
-            let html = generateModal(triggerButton, holder);
+    let message = triggerButton.dataset.say;
+    if (message) {
+        if (!triggerButton.classList.contains("said")) {
+            triggerButton.classList.add("said");
+            let html = generateModal(triggerButton);
             document.body.innerHTML += html;
         }
     }
-    if (triggeredElement.classList.contains(`by:${triggerButton.id}`)) {
-        show(triggeredElement);
+    triggeredElement = findModal();
+    if (triggeredElement) {
+        if (triggeredElement.classList.contains(`by:${triggerButton.id}`)) {
+            show(triggeredElement);
+        }
     }
-}
-export function getTrigger() {
-    return triggerButton;
-}
-function findHolder(button) {
-    return Array.from(document.querySelectorAll(".holder")).find((holder) => holder.classList.contains(`by:${button.id}`));
 }

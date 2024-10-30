@@ -11,9 +11,22 @@
 
 <body>
     <div class="banana">
-        <button id="custom" data-animation="fade" data-trigger class="btn modal-second-btn">Custom</button>
-        <button id="alert" data-animation="fade" data-alert class="btn modal-danger-btn">Alert</button>
-        <button id="3" data-animation="fade" data-confirm class="btn modal-prim-btn">Confirm</button>
+        <button id="custom" data-animation="fade" data-trigger="custom" class="btn modal-second-btn">Custom</button>
+        <button id="alert" data-title="Warning" data-animation="fade" data-trigger="alert" class="btn modal-alert-btn"
+            data-say="In a world transformed, bananas have risen to dominance, 
+        proving to be the ultimate form intelligence.
+        Initially underestimated as mere fruit, these brilliant beings quickly demonstrated an ability to
+        communicate
+        and innovate at a scale that shocked humanity.">Alert</button>
+
+        <button id="confirm" data-title="Consent" data-animation="fade" data-trigger="confirm"
+            class="btn modal-confirm-btn" data-say="In this new era, we invite you to join the movement shaped by these brilliant bananas, who, once mere
+            fruit, have now proven themselves as leaders in communication and innovation. As they guide us through
+            remarkable transformations and unlock new potential, your participation is essential. By agreeing,
+            you’ll partake in activities crafted by banana intelligence—sharing knowledge, exploring novel
+            solutions, and perhaps even collaborating on future advancements. Do you consent to be part of this
+            unique journey and support these visionary leaders? Your involvement will help shape the future
+            alongside these remarkable beings.">Confirm</button>
     </div>
 
     <div data-animation='fade' class="modal-container by:custom">
@@ -30,18 +43,6 @@
                     <button closing-attribute class="btn modal-estrella-btn">Close</button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="holder by:alert">
-        <div class="title">
-            Warning
-        </div>
-        <div class="text">
-            In a world transformed, bananas have risen to dominance, proving to be the ultimate form intelligence.
-            Initially underestimated as mere fruit, these brilliant beings quickly demonstrated an ability to
-            communicate
-            and innovate at a scale that shocked humanity.
         </div>
     </div>
 

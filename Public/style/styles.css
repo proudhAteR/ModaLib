@@ -55,6 +55,9 @@
 .do_fade {
   animation: fadeOut var(--animation-duration) ease-in-out;
 }
+.hide{
+  display: none;
+}
 
 .modal-content {
   background-color: var(--background);
@@ -114,12 +117,12 @@
   display: none;
 }
 
-.modal-prim-btn {
+.modal-confirm-btn {
   background-color: var(--prim-btn-color);
   color: var(--colored-btn-text);
 }
 
-.modal-danger-btn {
+.modal-alert-btn {
   background-color: var(--danger-bt-color);
   color: var(--colored-btn-text);
 }
