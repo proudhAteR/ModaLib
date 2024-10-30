@@ -6,7 +6,7 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": false,
-    "outDir": "Public/javascripts",
+    "outDir": "Public/ModaLib/javascripts",
     "moduleResolution": "NodeNext",
     "moduleDetection": "auto",
     "module": "NodeNext"
