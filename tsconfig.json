@@ -9,7 +9,6 @@
     "outDir": "Public/javascripts",
     "moduleResolution": "NodeNext",
     "moduleDetection": "auto",
-    "module": "NodeNext",
-    "strict": true
+    "module": "NodeNext"
   }
 }
