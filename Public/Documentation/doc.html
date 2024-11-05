@@ -236,10 +236,16 @@
                         </p>
                         <pre class="border rounded focus-ring">
                             <code class="language-js"><!--
+                                import { handle } from "ModaLib Path";
+
                                 document.body.addEventListener("click", (e) => {
-                                    const target = e.target;
-                                    handle(target, (value) => console.log(value));
-                                });
+                                const target = e.target;
+                                handle(target, (value) => myFunction(value));
+                            });
+
+                            function myFunction(value){
+                                console.log(value);
+                            }
                            --></code>
                         </pre>
                     </div>

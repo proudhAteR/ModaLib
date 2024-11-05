@@ -12,18 +12,18 @@ export function searchModal() {
 }
 export function show(modal) {
     if (isHidden(modal)) {
-        modal.classList.remove(`do_${animation}`);
+        modal.classList.remove(`animate`);
     }
     modal.classList.add(`show_${animation}`);
 }
 export function hide(modal) {
-    modal.classList.add(`do_${animation}`);
+    modal.classList.add(`animate`);
     setTimeout(() => {
         modal.classList.remove(`show_${animation}`);
     }, animationDuration);
 }
 function isHidden(modal) {
-    return modal.classList.contains(`do_${animation}`);
+    return modal.classList.contains(`animate`);
 }
 export function generateModal(trigger) {
     let options = trigger.dataset.options;

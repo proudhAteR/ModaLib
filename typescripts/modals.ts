@@ -19,14 +19,14 @@ export function searchModal() {
 
 export function show(modal: HTMLElement) {
   if (isHidden(modal)) {
-    modal.classList.remove(`do_${animation}`);
+    modal.classList.remove(`animate`);
   }
 
   modal.classList.add(`show_${animation}`);
 }
 
 export function hide(modal: HTMLElement) {
-  modal.classList.add(`do_${animation}`);
+  modal.classList.add(`animate`);
 
   setTimeout(() => {
     modal.classList.remove(`show_${animation}`);
@@ -34,7 +34,7 @@ export function hide(modal: HTMLElement) {
 }
 
 function isHidden(modal: HTMLElement) {
-  return modal.classList.contains(`do_${animation}`);
+  return modal.classList.contains(`animate`);
 }
 
 export function generateModal(trigger: HTMLElement) {
