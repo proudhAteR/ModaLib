@@ -7,10 +7,15 @@ document.body.addEventListener("click", (e) => {
     if (target.closest("[data-trigger]")) {
         handleTriggerClick(target);
     }
-    if (target.closest("[closing-attribute]")) {
+});
+export function alert(target, callback = null) {
+    if (target.closest("[data-action]") || target.closest("[data-second]")) {
+        if (callback) {
+            callback(target.closest("[data-action]") !== null);
+        }
         hide(triggeredElement);
     }
-});
+}
 function handleTriggerClick(triggerButton) {
     triggeredElement = findModal();
     if (!triggerButton.dataset.trigger.includes("custom")) {

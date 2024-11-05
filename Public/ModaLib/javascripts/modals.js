@@ -49,8 +49,8 @@ export function generateModal(trigger) {
             </p>
             <div class="btn_grp">
                 <div class="grp_content">
-                    <button closing-attribute class="btn modal-second-btn ${s}">${buttons[0]}</button>
-                    <button closing-attribute class="btn modal-${color}-btn">${buttons[1]}</button>
+                    <button data-second class="btn modal-second-btn ${s}">${buttons[0]}</button>
+                    <button data-action class="btn modal-${color}-btn">${buttons[1]}</button>
                 </div>
             </div>
         </div>

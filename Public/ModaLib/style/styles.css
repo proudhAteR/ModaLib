@@ -20,10 +20,10 @@
   --font: "Poppins", sans-serif;
   --font-size: 1.2rem;
   --colored-btn-text: aliceblue;
-  --danger-bt-color: #bb4747;
-  --prim-btn-color: #47a386;
-  --second-btn-color: gainsboro;
   --light-btn-text: black;
+  --alert-btn-color: #bb4747;
+  --confirm-btn-color: #47a386;
+  --second-btn-color: gainsboro;
   --estrella-btn-color: #dda4d1;
   --animation-duration: 0.5s;
 }
@@ -113,7 +113,7 @@ h6 {
   border-radius: 6px;
   border: none;
   padding: 10px 20px;
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -130,12 +130,12 @@ h6 {
 }
 
 .modal-confirm-btn {
-  background-color: var(--prim-btn-color);
+  background-color: var(--confirm-btn-color);
   color: var(--colored-btn-text);
 }
 
 .modal-alert-btn {
-  background-color: var(--danger-bt-color);
+  background-color: var(--alert-btn-color);
   color: var(--colored-btn-text);
 }
 
@@ -147,9 +147,4 @@ h6 {
 .modal-estrella-btn {
   background-color: var(--estrella-btn-color);
   color: var(--colored-btn-text);
-}
-
-.banana {
-  display: flex;
-  justify-content: space-between;
 }

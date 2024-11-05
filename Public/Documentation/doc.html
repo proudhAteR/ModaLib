@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>YOUR-MODAL-LIBRARY-NAME Documentation</title>
+    <title>ModaLib Documentation</title>
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
@@ -16,17 +16,17 @@
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
 
-    <link href="./stylesheets/vendor/prism.css" rel="stylesheet">
+    <link href="./style/vendor/prism.css" rel="stylesheet">
     <link href="../ModaLib/style/styles.css" rel="stylesheet">
     <link href="./style/styles.css" rel="stylesheet">
 
-    <!-- FAVICON -->
     <link href="./images/ModaLib.webp" rel="shortcut icon" type="image/x-icon">
 
     <script src="./javascripts/vendor/prism.js" type="module"></script>
 
     <script src="../ModaLib/javascripts/main.js" type="module"></script>
-    <script src="./javascripts/app.js" type="module"></script>
+    <script src="./javascripts/user.js" type="module"></script>
+
 </head>
 
 <body>
@@ -117,66 +117,68 @@
                                 </p>
                             </li>
                             <li>
-                                An <b class="prop">id</b> to link the button to its modal.
+                                An <strong class="prop">id</strong> to link the button to its modal.
                             </li>
                             <li>
-                                A <b class="prop">data-animation</b> to define the animation to use when the modal
+                                A <strong class="prop">data-animation</strong> to define the animation to use when the modal
                                 appears.
                                 <p>
                                     The animations you can use are:
                                 </p>
                                 <ol>
                                     <li>
-                                        <b class="prop">
+                                        <strong class="prop">
                                             fade
-                                        </b>
+                                        </strong>
                                     </li>
                                     <li>
-                                        <b class="prop">
+                                        <strong class="prop">
                                             slide <!--TODO: do the slide animation-->
-                                        </b>
+                                        </strong>
                                     </li>
                                 </ol>
                                 <p>
-                                    This value is set to <b>fade</b> by default.
+                                    This value is set to <strong>fade</strong> by default.
                                 </p>
                             </li>
 
                             <li>
-                                A <b class="prop">data-options</b> to set the what the buttons in your modal display as
+                                A <strong class="prop">data-options</strong> to set the what the buttons in your modal display as
                                 a message.
                                 <p>
-                                    This value is set to <b>Close</b> by default.
+                                    This value is set to <strong>Close</strong> by default.
                                 </p>
                             </li>
 
                             <li>
-                                A <b class="prop">data-title</b> to set the what the title of the modal.
+                                A <strong class="prop">data-title</strong> to set the what the title of the modal.
                             </li>
                             <li>
-                                A <b class="prop">data-say</b> to set the what the message of the modal.
+                                A <strong class="prop">data-say</strong> to set the what the message of the modal.
                             </li>
                             <li>
-                                A <b class="prop">data-color</b> to change the color of the action button in the modal
+                                A <strong class="prop">data-color</strong> to change the color of the action button in the modal
                                 (the button on the right of the modal) This attribute has a default value for each type
-                                of modal. (View the ModaLib CSS file)
+                                of modal.
+                                <pre class="border rounded focus-ring"><code class="language-css"><!--
+                                    --alert-btn-color: #bb4747;
+                                    --confirm-btn-color: #47a386;
+                                    --second-btn-color: gainsboro;
+                                    --estrella-btn-color: #dda4d1;
+                                --></code></pre>
+                                <p>
+                                    You just have to use the first part of the color name. (alert, confirm, estella).
+                                </p>
                             </li>
                         </ul>
                         </p>
 
                     </div>
                     <div>
-                        <h3 id="section1-item-2">
-                            Infos
-                        </h3>
-                        <div>
-                            You don't have any JavaScript to use to enjoy our library.
-                            It heavily relies on <b class="prop">data-attributes</b> and <b class="prop">classes</b>.
-                        </div>
                         <div role="list">
                             <div class="pt-4" role="listitem">
-                                <strong>Live Server is having problems with closing BODY tag, you can add an extra slash
-                                    //body for now</strong>
+                                <strong>You just need to link the script and the style file of the library in your html
+                                    file.</strong>
                                 <pre class="border rounded focus-ring"><code class="language-html"><!--
                                     <!doctype html>
                                     <html lang="en">
@@ -184,10 +186,13 @@
                                             <meta charset="utf-8">
                                             <meta name="viewport" content="width=device-width, initial-scale=1">
                                             <title>HTML Example</title>
+
+                                            <link href="/ModaLib/style/styles.css" rel="stylesheet">
+                                            <script src="/ModaLib/javascripts/main.js" type="module"></script>
                                         </head>
                                         <body>
                                             <h1>Hello, world!</h1>
-                                        </body>
+                                        <//body>
                                     </html>
                                 --></code></pre>
                             </div>
@@ -195,7 +200,8 @@
                             <div class="pt-4" role="listitem">
                                 <strong>HTML works fine with the comment syntax!</strong>
                                 <pre class="border rounded focus-ring"><code class="language-html"><!--
-                                    <button class="btn btn-primary mb-4">Try the modal!</button>
+                                    <button id="button_id" data-title="Title" data-trigger="confirm" 
+                                    class="btn modal-confirm-btn" data-say="message">Try</button>
                                 --></code></pre>
                             </div>
                         </div>
@@ -212,7 +218,7 @@
                             atque officiis iste placeat, quas accusamus minus repudiandae tenetur, harum libero
                             reiciendis debitis architecto laborum nisi reprehenderit?</p>
 
-                        <button id="button_id" data-title="Title" data-trigger="alert" class="btn modal-alert-btn"
+                        <button id="button_id" data-title="Title" data-trigger="confirm" class="btn modal-alert-btn"
                             data-say="message">Try</button>
 
                         <pre class="border rounded focus-ring">

@@ -10,21 +10,25 @@ let triggeredElement: HTMLElement;
 
 document.body.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
-  triggerButton = target
-  
-
+  triggerButton = target;
   if (target.closest("[data-trigger]")) {
     handleTriggerClick(target as HTMLElement);
   }
-
-
-  if (target.closest("[closing-attribute]")) {
-    hide(triggeredElement);
-  }
 });
 
-function handleTriggerClick(triggerButton: HTMLElement) {
+export function alert(
+  target: HTMLElement,
+  callback: (value: boolean) => boolean = null
+) {
+  if (target.closest("[data-action]") || target.closest("[data-second]")) {
+    if (callback) {
+      callback(target.closest("[data-action]") !== null);
+    }
+    hide(triggeredElement);
+  }
+}
 
+function handleTriggerClick(triggerButton: HTMLElement) {
   triggeredElement = findModal();
 
   if (!triggerButton.dataset.trigger.includes("custom")) {
