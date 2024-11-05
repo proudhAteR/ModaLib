@@ -8,7 +8,7 @@ document.body.addEventListener("click", (e) => {
         handleTriggerClick(target);
     }
 });
-export function alert(target, callback = null) {
+export function handle(target, callback = null) {
     if (target.closest("[data-action]") || target.closest("[data-second]")) {
         if (callback) {
             callback(target.closest("[data-action]") !== null);

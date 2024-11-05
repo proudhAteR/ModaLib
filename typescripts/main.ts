@@ -16,7 +16,7 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
-export function alert(
+export function handle(
   target: HTMLElement,
   callback: (value: boolean) => boolean = null
 ) {

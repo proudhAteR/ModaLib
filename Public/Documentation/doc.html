@@ -120,7 +120,8 @@
                                 An <strong class="prop">id</strong> to link the button to its modal.
                             </li>
                             <li>
-                                A <strong class="prop">data-animation</strong> to define the animation to use when the modal
+                                A <strong class="prop">data-animation</strong> to define the animation to use when the
+                                modal
                                 appears.
                                 <p>
                                     The animations you can use are:
@@ -141,12 +142,17 @@
                                     This value is set to <strong>fade</strong> by default.
                                 </p>
                             </li>
+                            <li>
+                                A <strong class="prop">data-action</strong> for the main button of the modal and a
+                                <strong class="prop">data-second</strong> fro the second button of the modal.
+                            </li>
 
                             <li>
-                                A <strong class="prop">data-options</strong> to set the what the buttons in your modal display as
+                                A <strong class="prop">data-options</strong> to set the what the buttons in your modal
+                                display as
                                 a message.
                                 <p>
-                                    This value is set to <strong>Close</strong> by default.
+                                    This value is set to <strong>OK</strong> by default.
                                 </p>
                             </li>
 
@@ -157,7 +163,8 @@
                                 A <strong class="prop">data-say</strong> to set the what the message of the modal.
                             </li>
                             <li>
-                                A <strong class="prop">data-color</strong> to change the color of the action button in the modal
+                                A <strong class="prop">data-color</strong> to change the color of the action button in
+                                the modal
                                 (the button on the right of the modal) This attribute has a default value for each type
                                 of modal.
                                 <pre class="border rounded focus-ring"><code class="language-css"><!--
@@ -198,11 +205,19 @@
                             </div>
 
                             <div class="pt-4" role="listitem">
-                                <strong>HTML works fine with the comment syntax!</strong>
-                                <pre class="border rounded focus-ring"><code class="language-html"><!--
-                                    <button id="button_id" data-title="Title" data-trigger="confirm" 
+                                <p>
+                                    <strong>You can try this html sample to make a simple button using ModaLib.</strong>
+
+                                </p>
+                                <button id="button_id" data-animation="slide" data-title="Title" data-trigger="confirm"
                                     class="btn modal-confirm-btn" data-say="message">Try</button>
-                                --></code></pre>
+
+                                <pre class="border rounded focus-ring">
+                            <code class="language-html"><!--
+                                <button id="button_id" data-title="Title" data-trigger="confirm" 
+                                class="btn modal-confirm-btn" data-say="message">Try</button>
+                           --></code>
+                        </pre>
                             </div>
                         </div>
                     </div>
@@ -217,16 +232,6 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam odio commodi veniam nulla,
                             atque officiis iste placeat, quas accusamus minus repudiandae tenetur, harum libero
                             reiciendis debitis architecto laborum nisi reprehenderit?</p>
-
-                        <button id="button_id" data-title="Title" data-trigger="confirm" class="btn modal-alert-btn"
-                            data-say="message">Try</button>
-
-                        <pre class="border rounded focus-ring">
-                            <code class="language-html"><!--
-                                <button id="button_id" data-title="Title" data-trigger="alert" class="btn modal-alert-btn"
-                            data-say="message">Try</button>
-                           --></code>
-                        </pre>
                     </div>
                 </section>
             </div>

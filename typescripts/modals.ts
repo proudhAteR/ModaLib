@@ -10,8 +10,8 @@ export function searchModal() {
   ).find((element) => element.classList.contains(`by:${triggerButton.id}`));
   triggeredElement = modal as HTMLElement;
 
-  animation = triggerButton?.getAttribute("data-animation")
-    ? (triggeredElement.getAttribute("data-animation") as string)
+  animation = triggerButton.dataset.animation
+    ? (triggerButton.dataset.animation as string)
     : "fade";
 
   return triggeredElement;

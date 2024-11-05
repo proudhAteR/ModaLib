@@ -5,8 +5,8 @@ let animation;
 export function searchModal() {
     const modal = Array.from(document.querySelectorAll(".modal-container")).find((element) => element.classList.contains(`by:${triggerButton.id}`));
     triggeredElement = modal;
-    animation = triggerButton?.getAttribute("data-animation")
-        ? triggeredElement.getAttribute("data-animation")
+    animation = triggerButton.dataset.animation
+        ? triggerButton.dataset.animation
         : "fade";
     return triggeredElement;
 }
