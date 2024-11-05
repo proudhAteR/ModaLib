@@ -1,0 +1,52 @@
+:root {
+  --nav: #47a386;
+  --prop: #bb4747;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  background-color: var(--nav);
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.sidebar {
+  overflow-y: scroll;
+  height: calc(100vh - 10.5rem);
+}
+.prop {
+  color: var(--prop);
+}

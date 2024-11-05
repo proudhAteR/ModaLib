@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>YOUR-MODAL-LIBRARY-NAME Documentation</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        referrerpolicy="no-referrer" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+
+    <link href="./stylesheets/vendor/prism.css" rel="stylesheet">
+    <link href="../ModaLib/style/styles.css" rel="stylesheet">
+    <link href="./style/styles.css" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link href="./images/ModaLib.webp" rel="shortcut icon" type="image/x-icon">
+
+    <script src="./javascripts/vendor/prism.js" type="module"></script>
+
+    <script src="../ModaLib/javascripts/main.js" type="module"></script>
+    <script src="./javascripts/app.js" type="module"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="container-xxl d-flex justify-content-between align-items-center flex-wrap gap-3 py-3 nav-primary">
+            <header>
+                <h1 class="m-0">
+                    <a class="focus-ring rounded-2 p-2 d-flex align-items-center gap-3 flex-wrap text-light"
+                        href="./index.html">
+                        <span>ModaLib</span>
+                    </a>
+                </h1>
+            </header>
+        </div>
+    </nav>
+    <main class="container-xxl">
+        <div class="row px-2 py-4">
+
+            <!-- Side navigation -->
+            <div class="col-lg-3 ps-0">
+                <div class="sidebar ps-3 pe-4 d-none d-lg-block">
+                    <div class="d-flex w-100 rounded-3 flex-column gap-3">
+                        <div class="pb-2">
+                            <h2 class="fs-5 mb-3 d-flex align-items-center gap-2">
+                                <!-- Use corresponding Font Awesome icons to make it prettier -->
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <span>Example Section 1</span>
+                            </h2>
+                            <div class="list-group" role="list">
+                                <a class="list-group-item list-group-item-action focus-ring py-2"
+                                    href="#section1-item-1" role="listitem">Section Item 1</a>
+                                <a class="list-group-item list-group-item-action focus-ring py-2"
+                                    href="#section1-item-2" role="listitem">Section Item 2</a>
+                            </div>
+                        </div>
+                        <div class="pb-2">
+                            <h2 class="fs-5 mb-3 d-flex align-items-center gap-2">
+                                <!-- Use corresponding Font Awesome icons to make it prettier -->
+                                <i class="fa-solid fa-heart text-warning"></i>
+                                <span>Example Section 2</span>
+                            </h2>
+                            <div class="list-group" role="list">
+                                <a class="list-group-item list-group-item-action focus-ring py-2" href="#section2-item1"
+                                    role="listitem">Section Item 1</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="sidebar col-lg-9 pe-4">
+                <section class="pb-4">
+                    <h2>Modals</h2>
+                    <hr>
+
+                    <div class="pb-4">
+                        <h3 id="section1-item-1">
+                            How it works
+                        </h3>
+                        <p>
+                            Our modals are built using HTML, CSS and JavaScript.
+                            They are rendered at top level using a container at <b class="prop">position: fixed</b>
+                            having
+                            a the actual modal inside.
+                            The container is used as a filter for the background of the modal.
+                        </p>
+
+                        <p>
+                            You'll need few things to personalize your modals:
+
+                        <ul>
+                            <li>
+                                A <b class="prop">data-trigger</b> to define what kind of modal you are using
+                                <p>
+                                    There's 3 kinds of modals: <!--Todo: add the ajax modal-->
+                                <ol>
+                                    <li>
+                                        Alert modals
+                                    </li>
+                                    <li>
+                                        Confirm modals
+                                    </li>
+                                    <li>
+                                        Custom modals
+                                    </li>
+                                </ol>
+                                </p>
+                            </li>
+                            <li>
+                                An <b class="prop">id</b> to link the button to its modal.
+                            </li>
+                            <li>
+                                A <b class="prop">data-animation</b> to define the animation to use when the modal
+                                appears.
+                                <p>
+                                    The animations you can use are:
+                                </p>
+                                <ol>
+                                    <li>
+                                        <b class="prop">
+                                            fade
+                                        </b>
+                                    </li>
+                                    <li>
+                                        <b class="prop">
+                                            slide <!--TODO: do the slide animation-->
+                                        </b>
+                                    </li>
+                                </ol>
+                                <p>
+                                    This value is set to <b>fade</b> by default.
+                                </p>
+                            </li>
+
+                            <li>
+                                A <b class="prop">data-options</b> to set the what the buttons in your modal display as
+                                a message.
+                                <p>
+                                    This value is set to <b>Close</b> by default.
+                                </p>
+                            </li>
+
+                            <li>
+                                A <b class="prop">data-title</b> to set the what the title of the modal.
+                            </li>
+                            <li>
+                                A <b class="prop">data-say</b> to set the what the message of the modal.
+                            </li>
+                            <li>
+                                A <b class="prop">data-color</b> to change the color of the action button in the modal
+                                (the button on the right of the modal) This attribute has a default value for each type
+                                of modal. (View the ModaLib CSS file)
+                            </li>
+                        </ul>
+                        </p>
+
+                    </div>
+                    <div>
+                        <h3 id="section1-item-2">
+                            Infos
+                        </h3>
+                        <div>
+                            You don't have any JavaScript to use to enjoy our library.
+                            It heavily relies on <b class="prop">data-attributes</b> and <b class="prop">classes</b>.
+                        </div>
+                        <div role="list">
+                            <div class="pt-4" role="listitem">
+                                <strong>Live Server is having problems with closing BODY tag, you can add an extra slash
+                                    //body for now</strong>
+                                <pre class="border rounded focus-ring"><code class="language-html"><!--
+                                    <!doctype html>
+                                    <html lang="en">
+                                        <head>
+                                            <meta charset="utf-8">
+                                            <meta name="viewport" content="width=device-width, initial-scale=1">
+                                            <title>HTML Example</title>
+                                        </head>
+                                        <body>
+                                            <h1>Hello, world!</h1>
+                                        </body>
+                                    </html>
+                                --></code></pre>
+                            </div>
+
+                            <div class="pt-4" role="listitem">
+                                <strong>HTML works fine with the comment syntax!</strong>
+                                <pre class="border rounded focus-ring"><code class="language-html"><!--
+                                    <button class="btn btn-primary mb-4">Try the modal!</button>
+                                --></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="pb-4">
+                    <h2>Example Section 2</h2>
+                    <hr>
+
+                    <div class="pb-5">
+                        <h3 id="section2-item1">Section Item 1</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam odio commodi veniam nulla,
+                            atque officiis iste placeat, quas accusamus minus repudiandae tenetur, harum libero
+                            reiciendis debitis architecto laborum nisi reprehenderit?</p>
+
+                        <button id="button_id" data-title="Title" data-trigger="alert" class="btn modal-alert-btn"
+                            data-say="message">Try</button>
+
+                        <pre class="border rounded focus-ring">
+                            <code class="language-html"><!--
+                                <button id="button_id" data-title="Title" data-trigger="alert" class="btn modal-alert-btn"
+                            data-say="message">Try</button>
+                           --></code>
+                        </pre>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="pb-1 text-center">
+        <small>
+            © Copyright Modal Template 2024
+        </small>
+    </footer>
+</body>
+
+</html>

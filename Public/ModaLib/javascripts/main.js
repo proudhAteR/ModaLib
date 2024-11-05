@@ -2,35 +2,36 @@ import { searchModal as findModal, generateModal, hide, show, } from "./modals.j
 export let triggerButton;
 let triggeredElement;
 document.body.addEventListener("click", (e) => {
-    let target = e.target;
+    const target = e.target;
+    triggerButton = target;
     if (target.closest("[data-trigger]")) {
-        triggerButton = target;
-        triggeredElement = findModal();
-        if (!target.dataset.trigger.includes("custom")) {
-            defaultModals(target);
-        }
-        if (triggeredElement.classList.contains(`by:${triggerButton.id}`)) {
-            show(triggeredElement);
-        }
+        handleTriggerClick(target);
     }
     if (target.closest("[closing-attribute]")) {
         hide(triggeredElement);
     }
 });
+function handleTriggerClick(triggerButton) {
+    triggeredElement = findModal();
+    if (!triggerButton.dataset.trigger.includes("custom")) {
+        defaultModals(triggerButton);
+    }
+    if (triggeredElement &&
+        triggeredElement.classList.contains(`by:${triggerButton.id}`)) {
+        show(triggeredElement);
+    }
+}
 function defaultModals(target) {
     triggerButton = target;
-    let message = triggerButton.dataset.say;
-    if (message) {
-        if (!triggerButton.classList.contains("said")) {
-            triggerButton.classList.add("said");
-            let html = generateModal(triggerButton);
-            document.body.innerHTML += html;
-        }
+    const message = triggerButton.dataset.say;
+    if (message && !triggerButton.classList.contains("said")) {
+        triggerButton.classList.add("said");
+        const html = generateModal(triggerButton);
+        document.body.innerHTML += html;
     }
     triggeredElement = findModal();
-    if (triggeredElement) {
-        if (triggeredElement.classList.contains(`by:${triggerButton.id}`)) {
-            show(triggeredElement);
-        }
+    if (triggeredElement &&
+        triggeredElement?.classList.contains(`by:${triggerButton.id}`)) {
+        show(triggeredElement);
     }
 }
