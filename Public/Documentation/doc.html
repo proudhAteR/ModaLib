@@ -134,7 +134,7 @@
                                     </li>
                                     <li>
                                         <strong class="prop">
-                                            slide <!--TODO: do the slide animation-->
+                                            slide
                                         </strong>
                                     </li>
                                 </ol>
@@ -209,29 +209,39 @@
                                     <strong>You can try this html sample to make a simple button using ModaLib.</strong>
 
                                 </p>
-                                <button id="button_id" data-animation="slide" data-title="Title" data-trigger="confirm"
-                                    class="btn modal-confirm-btn" data-say="message">Try</button>
 
                                 <pre class="border rounded focus-ring">
                             <code class="language-html"><!--
-                                <button id="button_id" data-title="Title" data-trigger="confirm" 
+                                <button id="button_id" data-animation="slide" 
+                                data-title="Title" data-trigger="confirm" 
                                 class="btn modal-confirm-btn" data-say="message">Try</button>
                            --></code>
                         </pre>
+                                <button id="button_id" data-animation="slide" data-title="Title" data-trigger="confirm"
+                                    class="btn modal-confirm-btn" data-say="message">Try</button>
+
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section class="pb-4">
-                    <h2>Example Section 2</h2>
+                    <h2>Callbacks</h2>
                     <hr>
-
                     <div class="pb-5">
                         <h3 id="section2-item1">Section Item 1</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam odio commodi veniam nulla,
                             atque officiis iste placeat, quas accusamus minus repudiandae tenetur, harum libero
-                            reiciendis debitis architecto laborum nisi reprehenderit?</p>
+                            reiciendis debitis architecto laborum nisi reprehenderit?
+                        </p>
+                        <pre class="border rounded focus-ring">
+                            <code class="language-js"><!--
+                                document.body.addEventListener("click", (e) => {
+                                    const target = e.target;
+                                    handle(target, (value) => console.log(value));
+                                });
+                           --></code>
+                        </pre>
                     </div>
                 </section>
             </div>
