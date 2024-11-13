@@ -53,11 +53,11 @@
                             <h2 class="fs-5 mb-3 d-flex align-items-center gap-2">
                                 <!-- Use corresponding Font Awesome icons to make it prettier -->
                                 <i class="fa-solid fa-star text-primary"></i>
-                                <span>Example Section 1</span>
+                                <span>Modals</span>
                             </h2>
                             <div class="list-group" role="list">
-                                <a class="list-group-item list-group-item-action focus-ring py-2"
-                                    href="#section1-item-1" role="listitem">Section Item 1</a>
+                                <a class="list-group-item list-group-item-action focus-ring py-2" href="#How-it-works"
+                                    role="listitem">How it works</a>
                                 <a class="list-group-item list-group-item-action focus-ring py-2"
                                     href="#section1-item-2" role="listitem">Section Item 2</a>
                             </div>
@@ -84,7 +84,7 @@
                     <hr>
 
                     <div class="pb-4">
-                        <h3 id="section1-item-1">
+                        <h3 id="How-it-works">
                             How it works
                         </h3>
                         <p>
@@ -217,8 +217,29 @@
                                 class="btn modal-confirm-btn" data-say="message">Try</button>
                            --></code>
                         </pre>
-                                <button id="button_id" data-animation="slide" data-title="Title" data-trigger="confirm"
-                                    class="btn modal-confirm-btn" data-say="message">Try</button>
+                            </div>
+                            <div class="pt-4" role="listitem">
+                                <p>
+                                    To be able to handle actions on the modal you'll have to import the MLHandle
+                                    function from the library and pass it a target as parameter.
+                                </p>
+                                <p>
+                                    (We recommend adding an event listener on the whole body to handle the modals)
+                                </p>
+                                <pre class="border rounded focus-ring">
+                                    <code class="language-js"><!--
+                                        import { MLHandle } from "ModaLib Path";
+
+                                        document.body.addEventListener("click", (e) => {
+                                            const target = e.target;
+                                            MLHandle(target)
+                                        });
+                                   --></code>
+                                </pre>
+                                <button id="button_id" data-animation="slide" data-trigger="alert"
+                                    class="btn modal-confirm-btn">
+                                    Try
+                                </button>
 
                             </div>
                         </div>
@@ -229,23 +250,16 @@
                     <h2>Callbacks</h2>
                     <hr>
                     <div class="pb-5">
-                        <h3 id="section2-item1">Section Item 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam odio commodi veniam nulla,
-                            atque officiis iste placeat, quas accusamus minus repudiandae tenetur, harum libero
-                            reiciendis debitis architecto laborum nisi reprehenderit?
+                        <h3 id="section2-item1">How it works</h3>
+                        <p>
+                            You can pass callbacks to the MLHandle function
                         </p>
                         <pre class="border rounded focus-ring">
                             <code class="language-js"><!--
-                                import { handle } from "ModaLib Path";
-
                                 document.body.addEventListener("click", (e) => {
                                 const target = e.target;
-                                handle(target, (value) => myFunction(value));
+                                MLHandle(target, (value) => myFunction(value));
                             });
-
-                            function myFunction(value){
-                                console.log(value);
-                            }
                            --></code>
                         </pre>
                     </div>
