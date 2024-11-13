@@ -66,11 +66,11 @@
                             <h2 class="fs-5 mb-3 d-flex align-items-center gap-2">
                                 <!-- Use corresponding Font Awesome icons to make it prettier -->
                                 <i class="fa-solid fa-heart text-warning"></i>
-                                <span>Example Section 2</span>
+                                <span>Callbacks</span>
                             </h2>
                             <div class="list-group" role="list">
                                 <a class="list-group-item list-group-item-action focus-ring py-2" href="#section2-item1"
-                                    role="listitem">Section Item 1</a>
+                                    role="listitem">How it works</a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                             <li>
                                 A <b class="prop">data-trigger</b> to define what kind of modal you are using
                                 <p>
-                                    There's 3 kinds of modals: <!--Todo: add the ajax modal-->
+                                    There's 4 kinds of modals:
                                 <ol>
                                     <li>
                                         Alert modals
@@ -112,6 +112,9 @@
                                     </li>
                                     <li>
                                         Custom modals
+                                    </li>
+                                    <li>
+                                        AJAX modals
                                     </li>
                                 </ol>
                                 </p>
@@ -165,17 +168,13 @@
                             <li>
                                 A <strong class="prop">data-color</strong> to change the color of the action button in
                                 the modal
-                                (the button on the right of the modal) This attribute has a default value for each type
-                                of modal.
+                                (the button on the right of the modal).
                                 <pre class="border rounded focus-ring"><code class="language-css"><!--
-                                    --alert-btn-color: #bb4747;
-                                    --confirm-btn-color: #47a386;
-                                    --second-btn-color: gainsboro;
-                                    --estrella-btn-color: #dda4d1;
+                                    alert
+                                    confirm
+                                    second
+                                    estrella
                                 --></code></pre>
-                                <p>
-                                    You just have to use the first part of the color name. (alert, confirm, estella).
-                                </p>
                             </li>
                         </ul>
                         </p>
@@ -223,21 +222,62 @@
                                     To be able to handle actions on the modal you'll have to import the MLHandle
                                     function from the library and pass it a target as parameter.
                                 </p>
-                                <p>
-                                    (We recommend adding an event listener on the whole body to handle the modals)
-                                </p>
                                 <pre class="border rounded focus-ring">
                                     <code class="language-js"><!--
                                         import { MLHandle } from "ModaLib Path";
-
-                                        document.body.addEventListener("click", (e) => {
-                                            const target = e.target;
-                                            MLHandle(target)
-                                        });
+                                        
+                                        MLHandle();
                                    --></code>
                                 </pre>
-                                <button id="button_id" data-animation="slide" data-trigger="alert"
-                                    class="btn modal-confirm-btn">
+                                <button id="button_id1" data-animation="slide" data-title="Title" data-trigger="confirm"
+                                    class="btn modal-confirm-btn" data-say="message">
+                                    Try
+                                </button>
+
+                            </div>
+                            <div class="pt-4" role="listitem">
+                                <p>
+                                    If you want to make AJAX calls to an API and display them into one of the library
+                                    modal, you'll have to import two functions:
+                                <ol>
+                                    <li>
+                                        <strong class="prop">
+                                            MLAjaxCall
+                                        </strong>
+                                        to make the call to the api and get the values it returns.
+                                    </li>
+                                    <li>
+                                        <strong class="prop">
+                                            MLAjaxDisplay
+                                        </strong>
+                                        to set which results you want as the modal title and message.
+                                    </li>
+                                </ol>
+                                </p>
+
+                                <pre class="border rounded focus-ring">
+                                    <code class="language-js"><!--
+                                        import {
+                                            MLHandle,
+                                            MLAjaxCall,
+                                            MLAjaxDisplay
+                                        } from "ModaLib path";
+
+                                        const url = 'https://yourAPIUrlhere'
+                                        const button = document.querySelector("#button_id")
+
+                                        button.addEventListener("click", async (e) => {
+                                            const target = e.target;
+                                            const result = await MLAjaxCall(url);
+
+                                            MLAjaxDisplay(target, result.titleElement, result.messageElement);
+
+                                        });
+                                        MLHandle();
+                                   --></code>
+                                </pre>
+                                <button id="button_id2" data-animation="slide" data-trigger="alert"
+                                    class="btn modal-alert-btn">
                                     Try
                                 </button>
 
@@ -252,14 +292,13 @@
                     <div class="pb-5">
                         <h3 id="section2-item1">How it works</h3>
                         <p>
-                            You can pass callbacks to the MLHandle function
+                            You can pass callbacks to the MLHandle function. Depending on the modal you will use it will
+                            return <strong>true</strong> or <strong>false</strong>.(True for main buttons and false for
+                            second ones)
                         </p>
                         <pre class="border rounded focus-ring">
                             <code class="language-js"><!--
-                                document.body.addEventListener("click", (e) => {
-                                const target = e.target;
-                                MLHandle(target, (value) => myFunction(value));
-                            });
+                               MLHandle(myFunction);
                            --></code>
                         </pre>
                     </div>

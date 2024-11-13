@@ -16,27 +16,19 @@ document.body.addEventListener("click", (e) => {
     handleTriggerClick(target);
   }
 });
-function MLSetTitle(target: HTMLElement, title: string) {
-  target.setAttribute("data-title", title);
-}
-function MLSetMessage(target: HTMLElement, message: string) {
-  target.setAttribute("data-say", message);
-}
 
-function isModalTriggered(target: HTMLElement) {
-  return target.closest("[data-trigger]");
-}
+export function MLHandle(callback: (value: boolean) => boolean = null) {
+  
+  document.body.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
 
-export function MLHandle(
-  target: HTMLElement,
-  callback: (value: boolean) => boolean = null
-) {
-  if (isModalButtonClicked(target)) {
-    if (callback) {
-      callback(target.closest("[data-action]") !== null);
+    if (isModalButtonClicked(target)) {
+      if (callback) {
+        callback(target.closest("[data-action]") !== null);
+      }
+      hide(triggeredElement);
     }
-    hide(triggeredElement);
-  }
+  });
 }
 
 export async function MLAjaxCall(url: string) {
@@ -49,7 +41,7 @@ async function makeCall(url: string) {
 
     if (!response.ok) {
       throw new Error(
-        `Failed to fetch data : ${response.status}/ ${response.statusText}`
+        `Failed to fetch data : ${response.status} ${response.statusText}`
       );
     }
     let json: JSON = await response.json();
@@ -84,13 +76,19 @@ function handleTriggerClick(triggerButton: HTMLElement) {
 }
 
 function createModal(target: HTMLElement, title: string, message: string) {
-  if (!target.dataset.say && !target.classList.contains("said")) {
+  triggerButton = target;
+
+  if (!target.dataset.say) {
     MLSetTitle(target, title);
     MLSetMessage(target, message);
+  }
+
+  if (!target.classList.contains("said")) {
     target.classList.add("said");
     const html = generateModal(target);
     document.body.innerHTML += html;
   }
+
   triggeredElement = findModal();
 
   if (
@@ -116,4 +114,15 @@ export function MLAjaxDisplay(
   title: string
 ) {
   createModal(target, message, title);
+}
+
+function MLSetTitle(target: HTMLElement, title: string) {
+  target.setAttribute("data-title", title);
+}
+function MLSetMessage(target: HTMLElement, message: string) {
+  target.setAttribute("data-say", message);
+}
+
+function isModalTriggered(target: HTMLElement) {
+  return target.closest("[data-trigger]");
 }
