@@ -36,6 +36,25 @@ export function hide(modal: HTMLElement) {
 function isHidden(modal: HTMLElement) {
   return modal.classList.contains(`animate`);
 }
+export function isModalButtonClicked(target: HTMLElement) {
+  return (
+    target.closest("[data-action]") ||
+    target.closest("[data-second]") ||
+    target.closest("[data-close]")
+  );
+}
+
+export function setTitle(target: HTMLElement, title: string) {
+  target.setAttribute("data-title", title);
+}
+export function setMessage(target: HTMLElement, message: string) {
+  target.setAttribute("data-say", message);
+}
+
+export function isModalTriggered(target: HTMLElement) {
+  return target.closest("[data-trigger]");
+}
+
 
 export function generateModal(trigger: HTMLElement) {
   let options: string = trigger.dataset.options;

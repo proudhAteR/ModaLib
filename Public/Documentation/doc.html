@@ -17,8 +17,8 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
 
     <link href="./style/vendor/prism.css" rel="stylesheet">
-    <link href="../ModaLib/style/styles.css" rel="stylesheet">
     <link href="./style/styles.css" rel="stylesheet">
+    <link href="../ModaLib/style/styles.css" rel="stylesheet">
 
     <link href="./images/ModaLib.webp" rel="shortcut icon" type="image/x-icon">
 
@@ -58,8 +58,8 @@
                             <div class="list-group" role="list">
                                 <a class="list-group-item list-group-item-action focus-ring py-2" href="#How-it-works"
                                     role="listitem">How it works</a>
-                                <a class="list-group-item list-group-item-action focus-ring py-2"
-                                    href="#section1-item-2" role="listitem">Section Item 2</a>
+                                <a class="list-group-item list-group-item-action focus-ring py-2" href="#ajax"
+                                    role="listitem">AJAX modals</a>
                             </div>
                         </div>
                         <div class="pb-2">
@@ -84,7 +84,7 @@
                     <hr>
 
                     <div class="pb-4">
-                        <h3 id="How-it-works">
+                        <h3 id="How-it-works" class="section-title">
                             How it works
                         </h3>
                         <p>
@@ -183,8 +183,8 @@
                     <div>
                         <div role="list">
                             <div class="pt-4" role="listitem">
-                                <strong>You just need to link the script and the style file of the library in your html
-                                    file.</strong>
+                                You'll need to link the script and the style file of the library in your html
+                                file.
                                 <pre class="border rounded focus-ring"><code class="language-html"><!--
                                     <!doctype html>
                                     <html lang="en">
@@ -193,8 +193,8 @@
                                             <meta name="viewport" content="width=device-width, initial-scale=1">
                                             <title>HTML Example</title>
 
-                                            <link href="/ModaLib/style/styles.css" rel="stylesheet">
-                                            <script src="/ModaLib/javascripts/main.js" type="module"></script>
+                                            <link href="ModaLib css file path" rel="stylesheet">
+                                            <script src="ModaLib main file path" type="module"></script>
                                         </head>
                                         <body>
                                             <h1>Hello, world!</h1>
@@ -205,8 +205,7 @@
 
                             <div class="pt-4" role="listitem">
                                 <p>
-                                    <strong>You can try this html sample to make a simple button using ModaLib.</strong>
-
+                                    Here is an example of what you trigger should look like.
                                 </p>
 
                                 <pre class="border rounded focus-ring">
@@ -235,7 +234,10 @@
                                 </button>
 
                             </div>
-                            <div class="pt-4" role="listitem">
+                            <div class="pt-4" role="listitem" id="ajax">
+                                <h3 id="How-it-works" class="section-title">
+                                    AJAX modals
+                                </h3>
                                 <p>
                                     If you want to make AJAX calls to an API and display them into one of the library
                                     modal, you'll have to import two functions:
@@ -261,10 +263,10 @@
                                             MLHandle,
                                             MLAjaxCall,
                                             MLAjaxDisplay
-                                        } from "ModaLib path";
+                                        } from "ModaLib path"
 
-                                        const url = 'https://yourAPIUrlhere'
-                                        const button = document.querySelector("#button_id")
+                                        const url = 'https://yourAPIUrlhere';
+                                        const button = document.querySelector("#button_id");
 
                                         button.addEventListener("click", async (e) => {
                                             const target = e.target;
@@ -290,7 +292,7 @@
                     <h2>Callbacks</h2>
                     <hr>
                     <div class="pb-5">
-                        <h3 id="section2-item1">How it works</h3>
+                        <h3 class="section-title" id="section2-item1">How it works</h3>
                         <p>
                             You can pass callbacks to the MLHandle function. Depending on the modal you will use it will
                             return <strong>true</strong> or <strong>false</strong>.(True for main buttons and false for

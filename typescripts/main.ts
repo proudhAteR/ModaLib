@@ -3,7 +3,13 @@ import {
   generateModal,
   hide,
   show,
+  isModalTriggered,
+  setMessage,
+  setTitle,
+  isModalButtonClicked,
 } from "./modals.js";
+
+import makeCall from "./api.js";
 
 export let triggerButton: HTMLElement;
 let triggeredElement: HTMLElement;
@@ -18,7 +24,6 @@ document.body.addEventListener("click", (e) => {
 });
 
 export function MLHandle(callback: (value: boolean) => boolean = null) {
-  
   document.body.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
@@ -34,30 +39,6 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
 export async function MLAjaxCall(url: string) {
   const result = await makeCall(url);
   return result;
-}
-async function makeCall(url: string) {
-  try {
-    let response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(
-        `Failed to fetch data : ${response.status} ${response.statusText}`
-      );
-    }
-    let json: JSON = await response.json();
-
-    return json;
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-function isModalButtonClicked(target: HTMLElement) {
-  return (
-    target.closest("[data-action]") ||
-    target.closest("[data-second]") ||
-    target.closest("[data-close]")
-  );
 }
 
 function handleTriggerClick(triggerButton: HTMLElement) {
@@ -79,8 +60,8 @@ function createModal(target: HTMLElement, title: string, message: string) {
   triggerButton = target;
 
   if (!target.dataset.say) {
-    MLSetTitle(target, title);
-    MLSetMessage(target, message);
+    setTitle(target, title);
+    setMessage(target, message);
   }
 
   if (!target.classList.contains("said")) {
@@ -114,15 +95,4 @@ export function MLAjaxDisplay(
   title: string
 ) {
   createModal(target, message, title);
-}
-
-function MLSetTitle(target: HTMLElement, title: string) {
-  target.setAttribute("data-title", title);
-}
-function MLSetMessage(target: HTMLElement, message: string) {
-  target.setAttribute("data-say", message);
-}
-
-function isModalTriggered(target: HTMLElement) {
-  return target.closest("[data-trigger]");
 }

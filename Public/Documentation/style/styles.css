@@ -16,6 +16,9 @@ h5,
 h6 {
   font-weight: 700;
 }
+.section-title{
+  padding-bottom: 10px;
+}
 
 button {
   cursor: pointer;

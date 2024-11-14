@@ -2,12 +2,12 @@ import {
     MLHandle,
     MLAjaxCall,
     MLAjaxDisplay
-} from "../../ModaLib/javascripts/main.js";
+} from "../../ModaLib/javascripts/main.js"
 
-const url = 'https://geocoding-api.open-meteo.com/v1/search?name=montreal'
-const button = document.querySelector("#button_id2")
+const url = 'https://geocoding-api.open-meteo.com/v1/search?name=montreal';
+const button = document.querySelector("#button_id2");
 
-button.addEventListener("click", async (e) => {
+button.addEventListener("click", async (e) => {    
     const target = e.target;
 
     const result = await MLAjaxCall(url);
@@ -16,6 +16,4 @@ button.addEventListener("click", async (e) => {
 });
 MLHandle();
 
-function myFunction(value) {
-    console.log(value);
-}
+//!BUG : When clicking on the other button on the page first the eventListener on the button doesn't seem to work

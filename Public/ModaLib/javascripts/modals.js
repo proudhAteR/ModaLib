@@ -25,6 +25,20 @@ export function hide(modal) {
 function isHidden(modal) {
     return modal.classList.contains(`animate`);
 }
+export function isModalButtonClicked(target) {
+    return (target.closest("[data-action]") ||
+        target.closest("[data-second]") ||
+        target.closest("[data-close]"));
+}
+export function setTitle(target, title) {
+    target.setAttribute("data-title", title);
+}
+export function setMessage(target, message) {
+    target.setAttribute("data-say", message);
+}
+export function isModalTriggered(target) {
+    return target.closest("[data-trigger]");
+}
 export function generateModal(trigger) {
     let options = trigger.dataset.options;
     let buttons = ["Back", "Confirm"];
