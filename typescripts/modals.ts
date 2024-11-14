@@ -55,10 +55,9 @@ export function isModalTriggered(target: HTMLElement) {
   return target.closest("[data-trigger]");
 }
 
-
 export function generateModal(trigger: HTMLElement) {
   let options: string = trigger.dataset.options;
-  let buttons = ["Back", "Confirm"];
+  let buttons = ["Cancel", "OK"];
   let s = "hide";
   let color = trigger.getAttribute("data-trigger") as string;
 
@@ -80,9 +79,12 @@ export function generateModal(trigger: HTMLElement) {
     trigger.dataset.animation
   } said">
         <div class="modal-content">
-            <h1 class= "title">${
-              trigger.getAttribute("data-title") as string
-            }</h1>
+            <div class="title_grp">
+                    <h1 class="title">${
+                      trigger.getAttribute("data-title") as string
+                    }</h1>
+                    <span class="close" data-close>x</span>
+            </div>
             <p class="text">
                 ${trigger.getAttribute("data-say")} 
             </p>

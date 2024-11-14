@@ -58,6 +58,8 @@
                             <div class="list-group" role="list">
                                 <a class="list-group-item list-group-item-action focus-ring py-2" href="#How-it-works"
                                     role="listitem">How it works</a>
+                                <a class="list-group-item list-group-item-action focus-ring py-2" href="#custom"
+                                    role="listitem">Custom modals</a>
                                 <a class="list-group-item list-group-item-action focus-ring py-2" href="#ajax"
                                     role="listitem">AJAX modals</a>
                             </div>
@@ -79,6 +81,7 @@
 
             <!-- Page Content -->
             <div class="sidebar col-lg-9 pe-4">
+
                 <section class="pb-4">
                     <h2>Modals</h2>
                     <hr>
@@ -209,30 +212,17 @@
                                 </p>
 
                                 <pre class="border rounded focus-ring">
-                            <code class="language-html"><!--
+                                    <code class="language-html"><!--
                                 <button id="button_id" data-animation="slide" 
                                 data-title="Title" data-trigger="confirm" 
                                 class="btn modal-confirm-btn" data-say="message">Try</button>
-                           --></code>
-                        </pre>
-                            </div>
-                            <div class="pt-4" role="listitem">
-                                <p>
-                                    To be able to handle actions on the modal you'll have to import the MLHandle
-                                    function from the library and pass it a target as parameter.
-                                </p>
-                                <pre class="border rounded focus-ring">
-                                    <code class="language-js"><!--
-                                        import { MLHandle } from "ModaLib Path";
-                                        
-                                        MLHandle();
-                                   --></code>
+                                --></code>
+
                                 </pre>
                                 <button id="button_id1" data-animation="slide" data-title="Title" data-trigger="confirm"
                                     class="btn modal-confirm-btn" data-say="message">
                                     Try
                                 </button>
-
                             </div>
                             <div class="pt-4" role="listitem" id="ajax">
                                 <h3 id="How-it-works" class="section-title">
@@ -260,7 +250,6 @@
                                 <pre class="border rounded focus-ring">
                                     <code class="language-js"><!--
                                         import {
-                                            MLHandle,
                                             MLAjaxCall,
                                             MLAjaxDisplay
                                         } from "ModaLib path"
@@ -275,7 +264,6 @@
                                             MLAjaxDisplay(target, result.titleElement, result.messageElement);
 
                                         });
-                                        MLHandle();
                                    --></code>
                                 </pre>
                                 <button id="button_id2" data-animation="slide" data-trigger="alert"
@@ -296,10 +284,12 @@
                         <p>
                             You can pass callbacks to the MLHandle function. Depending on the modal you will use it will
                             return <strong>true</strong> or <strong>false</strong>.(True for main buttons and false for
-                            second ones)
+                            second ones).
                         </p>
                         <pre class="border rounded focus-ring">
                             <code class="language-js"><!--
+                                import {MLHandle} from "ModaLib Path"
+
                                MLHandle(myFunction);
                            --></code>
                         </pre>

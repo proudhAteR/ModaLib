@@ -23,6 +23,8 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
+MLHandle();
+
 export function MLHandle(callback: (value: boolean) => boolean = null) {
   document.body.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;

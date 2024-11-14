@@ -9,6 +9,7 @@ document.body.addEventListener("click", (e) => {
         handleTriggerClick(target);
     }
 });
+MLHandle();
 export function MLHandle(callback = null) {
     document.body.addEventListener("click", (e) => {
         const target = e.target;
@@ -36,7 +37,6 @@ function handleTriggerClick(triggerButton) {
 }
 function createModal(target, title, message) {
     triggerButton = target;
-    
     if (!target.dataset.say) {
         setTitle(target, title);
         setMessage(target, message);
@@ -46,6 +46,7 @@ function createModal(target, title, message) {
         const html = generateModal(target);
         document.body.innerHTML += html;
     }
+    
     triggeredElement = findModal();
     if (triggeredElement &&
         triggeredElement?.classList.contains(`by:${target.id}`)) {
