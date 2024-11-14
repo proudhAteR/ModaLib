@@ -14,5 +14,3 @@ button.addEventListener("click", async (e) => {
     MLAjaxDisplay(target, result.results[0].name, result.results[0].population);
 });
 
-//!BUG : When clicking on the other button on the page first the eventListener on the button doesn't seem to work
-

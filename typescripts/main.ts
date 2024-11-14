@@ -67,9 +67,15 @@ function createModal(target: HTMLElement, title: string, message: string) {
   }
 
   if (!target.classList.contains("said")) {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
     target.classList.add("said");
-    const html = generateModal(target);
-    document.body.innerHTML += html;
+
+    const modalWrapper = document.createElement("div");
+    modalWrapper.innerHTML = generateModal(target); 
+    document.body.appendChild(modalWrapper); 
+
+    window.scrollTo(0, scrollTop);
   }
 
   triggeredElement = findModal();
