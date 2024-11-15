@@ -59,7 +59,7 @@ export function generateModal(trigger) {
         <div class="modal-content">
             <div class="title_grp">
                     <h1 class="title">${trigger.getAttribute("data-title")}</h1>
-                    <span class="close" data-close>x</span>
+                    <span data-close aria-label="close the modal"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <p class="text">
                 ${trigger.getAttribute("data-say")} 

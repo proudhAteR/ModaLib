@@ -83,7 +83,7 @@ export function generateModal(trigger: HTMLElement) {
                     <h1 class="title">${
                       trigger.getAttribute("data-title") as string
                     }</h1>
-                    <span class="close" data-close>x</span>
+                    <span data-close aria-label="close the modal"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <p class="text">
                 ${trigger.getAttribute("data-say")} 

@@ -31,6 +31,8 @@
   --confirm-btn-color: #47a386;
   --second-btn-color: gainsboro;
   --estrella-btn-color: #dda4d1;
+  --sky-btn-color: #76b5ce;
+  --shadow-btn-color: #222;
   --animation-duration: 0.5s;
 }
 
@@ -98,13 +100,14 @@ h6 {
   border-radius: 12px;
   width: 600px;
   max-width: 100%;
+  max-height: 80%;
+  overflow: scroll;
 }
 
 @media (max-width: 600px) {
   .modal-content {
     max-width: 90%;
     max-height: 50%;
-    overflow: scroll;
   }
 }
 
@@ -121,13 +124,13 @@ h6 {
 }
 .title_grp {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 .grp_content {
   display: flex;
   gap: 12px;
 }
-.close {
+[data-close] {
   font-family: var(--font);
   font-weight: bold;
   border-radius: 6px;
@@ -137,7 +140,7 @@ h6 {
   position: relative;
   overflow: hidden;
 }
-.close:hover::after {
+[data-close]:hover::after {
   content: "";
   position: absolute;
   top: 0;
@@ -187,5 +190,15 @@ h6 {
 
 .modal-estrella-btn {
   background-color: var(--estrella-btn-color);
+  color: var(--colored-btn-text);
+}
+
+.modal-sky-btn {
+  background-color: var(--sky-btn-color);
+  color: var(--colored-btn-text);
+}
+
+.modal-shadow-btn {
+  background-color: var(--shadow-btn-color);
   color: var(--colored-btn-text);
 }

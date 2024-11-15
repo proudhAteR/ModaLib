@@ -1,5 +1,6 @@
 import { searchModal as findModal, generateModal, hide, show, isModalTriggered, setMessage, setTitle, isModalButtonClicked, } from "./modals.js";
 import makeCall from "./api.js";
+initIcons();
 export let triggerButton;
 let triggeredElement;
 document.body.addEventListener("click", (e) => {
@@ -18,6 +19,14 @@ export function MLHandle(callback = null) {
                 callback(target.closest("[data-action]") !== null);
             }
             hide(triggeredElement);
+        }
+    });
+    document.addEventListener("keydown", (e) => {
+        e.preventDefault();
+        if (e.key === "Escape") {
+            if (triggeredElement) {
+                hide(triggeredElement);
+            }
         }
     });
 }
@@ -53,6 +62,7 @@ function createModal(target, title, message) {
     if (triggeredElement &&
         triggeredElement?.classList.contains(`by:${target.id}`)) {
         show(triggeredElement);
+        triggeredElement.focus();
     }
 }
 function defaultModals(target) {
@@ -63,5 +73,20 @@ function defaultModals(target) {
     }
 }
 export function MLAjaxDisplay(target, message, title) {
-    createModal(target, message, title);
+    if (!target.dataset.trigger.includes("custom")) {
+        createModal(target, message, title);
+    }
+}
+function initIcons() {
+    const fontAwesomeLink = document.createElement("link");
+    let closeIcons = document.querySelectorAll("[data-close]");
+    fontAwesomeLink.rel = "stylesheet";
+    fontAwesomeLink.href =
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
+    document.head.appendChild(fontAwesomeLink);
+    closeIcons.forEach((icon) => {
+        if (!icon.innerHTML) {
+            icon.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+        }
+    });
 }

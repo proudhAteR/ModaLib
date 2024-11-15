@@ -10,6 +10,7 @@ import {
 } from "./modals.js";
 
 import makeCall from "./api.js";
+initIcons();
 
 export let triggerButton: HTMLElement;
 let triggeredElement: HTMLElement;
@@ -34,6 +35,15 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
         callback(target.closest("[data-action]") !== null);
       }
       hide(triggeredElement);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    e.preventDefault();
+    if (e.key === "Escape") {
+      if (triggeredElement) {
+        hide(triggeredElement);
+      }
     }
   });
 }
@@ -72,8 +82,8 @@ function createModal(target: HTMLElement, title: string, message: string) {
     target.classList.add("said");
 
     const modalWrapper = document.createElement("div");
-    modalWrapper.innerHTML = generateModal(target); 
-    document.body.appendChild(modalWrapper); 
+    modalWrapper.innerHTML = generateModal(target);
+    document.body.appendChild(modalWrapper);
 
     window.scrollTo(0, scrollTop);
   }
@@ -85,6 +95,7 @@ function createModal(target: HTMLElement, title: string, message: string) {
     triggeredElement?.classList.contains(`by:${target.id}`)
   ) {
     show(triggeredElement);
+    triggeredElement.focus();
   }
 }
 
@@ -102,5 +113,23 @@ export function MLAjaxDisplay(
   message: string,
   title: string
 ) {
-  createModal(target, message, title);
+  if(!target.dataset.trigger.includes("custom")){
+    createModal(target, message, title);
+  }
+}
+
+function initIcons() {
+  const fontAwesomeLink = document.createElement("link");
+  let closeIcons = document.querySelectorAll("[data-close]");
+  fontAwesomeLink.rel = "stylesheet";
+  fontAwesomeLink.href =
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
+
+  document.head.appendChild(fontAwesomeLink);
+
+  closeIcons.forEach((icon) => {
+    if (!icon.innerHTML) {
+      icon.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    }
+  });
 }
