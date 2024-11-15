@@ -6,11 +6,10 @@ import {
   isModalTriggered,
   setMessage,
   setTitle,
-  isModalButtonClicked
+  isModalButtonClicked,
 } from "./modals.js";
 
 import makeCall from "./api.js";
-initIcons();
 
 export let triggerButton: HTMLElement;
 let triggeredElement: HTMLElement;
@@ -23,21 +22,24 @@ document.body.addEventListener("click", (e) => {
     handleTriggerClick(target);
   }
 });
-
+initIcons();
 MLHandle();
 
 export function MLHandle(callback: (value: boolean) => boolean = null) {
   document.body.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
-    if (isModalButtonClicked(target) || target === triggeredElement){
+    if (isModalButtonClicked(target) || target === triggeredElement) {
       if (callback) {
         callback(target.closest("[data-action]") !== null);
       }
       hide(triggeredElement);
     }
   });
-
+  escapeHandler();
+  trapFocus();
+}
+function escapeHandler() {
   document.addEventListener("keydown", (e) => {
     e.preventDefault();
     if (e.key === "Escape") {
@@ -45,6 +47,30 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
         hide(triggeredElement);
       }
     }
+  });
+}
+function trapFocus() {
+  document.body.addEventListener("keydown", (e) => {
+    if (!triggeredElement || e.key !== "Tab") return;
+
+    e.preventDefault();
+
+    const focusableElements = Array.from(
+      triggeredElement.querySelectorAll(
+        "[data-action], [data-close], [data-second]"
+      )
+    ) as HTMLElement[];
+    if (!focusableElements.length) return;
+
+    const currentIndex = Array.prototype.indexOf.call(
+      focusableElements,
+      document.activeElement
+    );
+    let newIndex =
+      (currentIndex + (e.shiftKey ? -1 : 1)) % focusableElements.length;
+    if (newIndex < 0) newIndex = focusableElements.length - 1;
+
+    focusableElements[newIndex].focus();
   });
 }
 
@@ -113,7 +139,7 @@ export function MLAjaxDisplay(
   message: string,
   title: string
 ) {
-  if(!target.dataset.trigger.includes("custom")){
+  if (!target.dataset.trigger.includes("custom")) {
     createModal(target, message, title);
   }
 }
@@ -132,4 +158,8 @@ function initIcons() {
       icon.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
     }
   });
+}
+
+function initTabIndex(){
+  
 }

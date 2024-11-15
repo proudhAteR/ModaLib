@@ -59,15 +59,17 @@ export function generateModal(trigger) {
         <div class="modal-content">
             <div class="title_grp">
                     <h1 class="title">${trigger.getAttribute("data-title")}</h1>
-                    <span data-close aria-label="close the modal"><i class="fa-solid fa-xmark"></i></span>
+                    <span tabindex ="0" data-close aria-label="close the modal"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <p class="text">
                 ${trigger.getAttribute("data-say")} 
             </p>
             <div class="btn_grp">
                 <div class="grp_content">
-                    <button data-second class="btn modal-second-btn ${s}">${buttons[0]}</button>
-                    <button data-action class="btn modal-${color}-btn">${buttons[1]}</button>
+                    <button tabindex = ${s === "hide" ? "" : "2"} data-second aria-label="secondary action" class="btn modal-second-btn ${s}">${buttons[0]}                 
+                    </button>
+                    <button tabindex ="1" data-action aria-label="main action" class="btn modal-${color}-btn">${buttons[1]}
+                    </button>
                 </div>
             </div>
         </div>
