@@ -1,4 +1,4 @@
-import { searchModal as findModal, generateModal, hide, show, isModalTriggered, setMessage, setTitle, isModalButtonClicked, } from "./modals.js";
+import { searchModal as findModal, generateModal, hide, show, isModalTriggered, setMessage, setTitle, isModalButtonClicked } from "./modals.js";
 import makeCall from "./api.js";
 initIcons();
 export let triggerButton;
@@ -14,7 +14,7 @@ MLHandle();
 export function MLHandle(callback = null) {
     document.body.addEventListener("click", (e) => {
         const target = e.target;
-        if (isModalButtonClicked(target)) {
+        if (isModalButtonClicked(target) || target === triggeredElement) {
             if (callback) {
                 callback(target.closest("[data-action]") !== null);
             }

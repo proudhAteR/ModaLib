@@ -6,7 +6,7 @@ import {
   isModalTriggered,
   setMessage,
   setTitle,
-  isModalButtonClicked,
+  isModalButtonClicked
 } from "./modals.js";
 
 import makeCall from "./api.js";
@@ -30,7 +30,7 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
   document.body.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
-    if (isModalButtonClicked(target)) {
+    if (isModalButtonClicked(target) || target === triggeredElement){
       if (callback) {
         callback(target.closest("[data-action]") !== null);
       }

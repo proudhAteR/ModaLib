@@ -19,7 +19,6 @@ const cities = {
     Bangkok: 'Bangkok',
     LosAngeles: 'Los Angeles',
     Shanghai: 'Shanghai',
-    BuenosAires: 'Buenos Aires',
     Mumbai: 'Mumbai',
     Dubai: 'Dubai',
     Johannesburg: 'Johannesburg',
@@ -28,11 +27,15 @@ const cities = {
 const randomCityKey = Object.keys(cities)[getRandomCityIndex()];
 const url = `https://geocoding-api.open-meteo.com/v1/search?name=${randomCityKey}`;
 const button = document.querySelector("#button_id2");
+let result;
 
 button.addEventListener("click", async () => {
-    const result = await MLAjaxCall(url);
 
-    MLAjaxDisplay(button, result.results[0].name, `${result.results[0].population} habitants`);
+    if (!button.classList.contains('said')) {
+        result = await MLAjaxCall(url);
+        MLAjaxDisplay(button, result.results[0].name, `${result.results[0].population} habitants`);
+    }
+
 });
 function getRandomCityIndex() {
     return Math.floor(Math.random() * Object.keys(cities).length);
