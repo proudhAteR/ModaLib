@@ -9,6 +9,9 @@ body {
   font-weight: 400;
   background-color: #f5fbfd;
 }
+.list-group-item-action{
+  background-color: #fafcfc !important;
+}
 
 h1,
 h2,
@@ -47,7 +50,9 @@ footer {
   bottom: 0;
   transform: translateX(-50%);
 }
-
+pre{
+  margin-bottom: 24px !important;
+}
 .sidebar {
   overflow-y: scroll;
   height: calc(100vh - 10.5rem);
