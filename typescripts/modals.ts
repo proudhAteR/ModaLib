@@ -21,7 +21,6 @@ export function show(modal: HTMLElement) {
   if (isHidden(modal)) {
     modal.classList.remove(`animate`);
   }
-
   modal.classList.add(`show_${animation}`);
 }
 

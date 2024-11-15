@@ -1,11 +1,13 @@
+@import "../../../ModaLib/public/stylesheets/font.css";
 :root {
   --nav: #76b5ce;
   --prop: #bb4747;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
+  background-color: #f5fbfd;
 }
 
 h1,
@@ -16,7 +18,7 @@ h5,
 h6 {
   font-weight: 700;
 }
-.section-title{
+.section-title {
   padding-bottom: 10px;
 }
 

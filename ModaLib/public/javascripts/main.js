@@ -9,7 +9,7 @@ document.body.addEventListener("click", (e) => {
         handleTriggerClick(target);
     }
 });
-initIcons();
+initStyle();
 MLHandle();
 export function MLHandle(callback = null) {
     document.body.addEventListener("click", (e) => {
@@ -96,7 +96,7 @@ export function MLAjaxDisplay(target, message, title) {
         createModal(target, message, title);
     }
 }
-function initIcons() {
+function initStyle() {
     const fontAwesomeLink = document.createElement("link");
     let closeIcons = document.querySelectorAll("[data-close]");
     fontAwesomeLink.rel = "stylesheet";
@@ -108,6 +108,4 @@ function initIcons() {
             icon.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
         }
     });
-}
-function initTabIndex() {
 }

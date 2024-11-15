@@ -1,0 +1,38 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+}
+.show_slide {
+  display: flex !important;
+  animation: fadeIn var(--animation-duration);
+}
+.show_slide .modal-content {
+  display: flex !important;
+  animation: slideIn var(--animation-duration);
+}
+.do_slide {
+  animation: fadeOut var(--animation-duration);
+}
+
+.show_fade {
+  display: flex;
+  animation: fadeIn var(--animation-duration) ease-in-out;
+}
+.animate {
+  animation: fadeOut var(--animation-duration) ease-in-out;
+}

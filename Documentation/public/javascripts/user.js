@@ -2,12 +2,11 @@ import {
     MLHandle,
     MLAjaxCall,
     MLAjaxDisplay
-} from "../../ModaLib/javascripts/main.js"
+} from "../../../ModaLib/public/javascripts/main.js"
 const cities = {
     Montreal: 'Montreal',
     Tokyo: 'Tokyo',
     Kinshasa: 'Kinshasa',
-    NewYork: 'New-york',
     Paris: 'Paris',
     London: 'London',
     Beijing: 'Beijing',
