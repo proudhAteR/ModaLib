@@ -35,7 +35,7 @@
             <header>
                 <h1 class="m-0">
                     <a class="focus-ring rounded-2 p-2 d-flex align-items-center gap-3 flex-wrap text-light"
-                        href="./index.html">
+                        href="./doc.html">
                         <span>ModaLib</span>
                     </a>
                 </h1>
@@ -52,7 +52,7 @@
                         <div class="pb-2">
                             <h2 class="fs-5 mb-3 d-flex align-items-center gap-2">
                                 <!-- Use corresponding Font Awesome icons to make it prettier -->
-                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-regular fa-window-maximize"></i>
                                 <span>Modals</span>
                             </h2>
                             <div class="list-group" role="list">
@@ -67,7 +67,7 @@
                         <div class="pb-2">
                             <h2 class="fs-5 mb-3 d-flex align-items-center gap-2">
                                 <!-- Use corresponding Font Awesome icons to make it prettier -->
-                                <i class="fa-solid fa-heart text-warning"></i>
+                                <i class="fa-solid fa-code"></i>
                                 <span>Callbacks</span>
                             </h2>
                             <div class="list-group" role="list">
@@ -150,7 +150,7 @@
                             </li>
                             <li>
                                 A <strong class="prop">data-action</strong> for the main button of the modal and a
-                                <strong class="prop">data-second</strong> fro the second button of the modal.
+                                <strong class="prop">data-second</strong> for the second button of the modal.
                             </li>
 
                             <li>
@@ -177,6 +177,8 @@
                                     confirm
                                     second
                                     estrella
+                                    sky
+                                    shadow
                                 --></code></pre>
                             </li>
                         </ul>
@@ -224,6 +226,72 @@
                                     Try
                                 </button>
                             </div>
+                            <div class="pt-4" role="listitem" id="custom">
+                                <h3 id="How-it-works" class="section-title">
+                                    Custom modals
+                                </h3>
+                                <p>
+                                    Here is an example of the structure you should use to create your custom modals.
+                                    (The closing symbol is set to a closing <i class="fa-solid fa-xmark"></i> by default
+                                    but you can customize it).
+                                </p>
+                                <pre class="border rounded focus-ring">
+                                    <code class="language-html"><!--
+                                       <div class="modal-container by:button_id">
+                                            <div class="modal-content">
+                                                <div class="title_grp">
+                                                    <h1 class="title">Modal</h1>
+                                                    <span data-close></span>
+                                                </div>
+                                                <p class="text">
+                                                   Message
+                                                </p>
+                                                <div class="btn_grp">
+                                                    <div class="grp_content">
+                                                        <button data-second class="btn modal-second-btn">
+                                                            Learn More
+                                                        </button>
+                                                        <button data-action class="btn modal-estrella-btn">
+                                                            Close
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   --></code>
+                                </pre>
+
+                                <div class="modal-container by:custom">
+                                    <div class="modal-content">
+                                        <div class="title_grp">
+                                            <h1 class="title">Modal</h1>
+                                            <span data-close></span>
+                                        </div>
+                                        <p class="text">
+                                            In a world transformed, bananas have risen to dominance,
+                                            proving to be the ultimate form intelligence.
+                                            Initially underestimated as mere fruit, these brilliant beings quickly
+                                            demonstrated an ability to
+                                            communicate
+                                            and innovate at a scale that shocked humanity.
+                                        </p>
+                                        <div class="btn_grp">
+                                            <div class="grp_content">
+                                                <a href="https://youtu.be/xvFZjo5PgG0?si=IQ55JYCgmDhokMho"
+                                                    class="btn modal-second-btn">Learn More</a> <button data-action
+                                                    class="btn modal-estrella-btn">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="custom" data-animation="slide" data-trigger="custom"
+                                    class="btn modal-estrella-btn">
+                                    Try
+                                </button>
+
+                            </div>
                             <div class="pt-4" role="listitem" id="ajax">
                                 <h3 id="How-it-works" class="section-title">
                                     AJAX modals
@@ -257,21 +325,20 @@
                                         const url = 'https://yourAPIUrlhere';
                                         const button = document.querySelector("#button_id");
 
-                                        button.addEventListener("click", async (e) => {
-                                            const target = e.target;
+                                        button.addEventListener("click", async () => { 
                                             const result = await MLAjaxCall(url);
 
-                                            MLAjaxDisplay(target, result.titleElement, result.messageElement);
-
+                                            MLAjaxDisplay(button, result.titleElement, result.messageElement);
                                         });
                                    --></code>
                                 </pre>
                                 <button id="button_id2" data-animation="slide" data-trigger="alert"
-                                    class="btn modal-alert-btn">
+                                    class="btn modal-sky-btn" data-color="sky">
                                     Try
                                 </button>
 
                             </div>
+
                         </div>
                     </div>
                 </section>
