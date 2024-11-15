@@ -4,7 +4,6 @@ import {
     MLAjaxDisplay
 } from "../../../ModaLib/public/javascripts/main.js"
 const cities = {
-    Montreal: 'Montreal',
     Tokyo: 'Tokyo',
     Kinshasa: 'Kinshasa',
     Paris: 'Paris',

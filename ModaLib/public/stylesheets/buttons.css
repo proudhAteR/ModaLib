@@ -1,3 +1,5 @@
+@import "root.css";
+
 [data-close] {
   font-weight: bold;
   border-radius: 6px;
@@ -7,7 +9,7 @@
   position: relative;
   overflow: hidden;
 }
-[data-close]:hover::after {
+[data-close]:hover::after, [data-close]:focus::after {
   content: "";
   position: absolute;
   top: 0;
@@ -28,7 +30,7 @@
   position: relative;
   overflow: hidden;
 }
-.btn:hover::after {
+.btn:hover::after, .btn:focus::after{
   content: "";
   position: absolute;
   top: 0;

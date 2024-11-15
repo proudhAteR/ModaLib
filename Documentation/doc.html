@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ModaLib Documentation</title>
-    <link href="./public/images/ModaLib.ico" rel="icon" type="image/png">
-    
+    <link href="./public/images/ModaLib.ico" rel="icon">
+
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 
@@ -266,7 +266,7 @@
                                     <div class="modal-content">
                                         <div class="title_grp">
                                             <h1 class="title">Modal</h1>
-                                            <span data-close></span>
+                                            <span tabindex="0" data-close></span>
                                         </div>
                                         <p class="text">
                                             In a world transformed, bananas have risen to dominance,
@@ -278,9 +278,11 @@
                                         </p>
                                         <div class="btn_grp">
                                             <div class="grp_content">
-                                                <a href="https://youtu.be/xvFZjo5PgG0?si=IQ55JYCgmDhokMho"
-                                                    class="btn modal-second-btn">Learn More</a> <button data-action
-                                                    class="btn modal-estrella-btn">
+                                                <a role="button" tabindex="2" href="https://youtu.be/xvFZjo5PgG0?si=IQ55JYCgmDhokMho"
+                                                    class="btn modal-second-btn">
+                                                    Learn More
+                                                </a>
+                                                <button tabindex="1" data-action class="btn modal-estrella-btn">
                                                     Close
                                                 </button>
                                             </div>
