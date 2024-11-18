@@ -1,7 +1,7 @@
 import {
     MLAjaxProcess,
     isSaid
-} from "../../../ModaLib/public/javascripts/main.js"
+} from "../../../ModaLib/public/javascript/main.js"
 const cities = {
     Tokyo: 'Tokyo',
     Kinshasa: 'Kinshasa',
@@ -12,7 +12,7 @@ const cities = {
     Moscow: 'Moscow',
     Cairo: 'Cairo',
     Istanbul: 'Istanbul',
-    MexicoCity: 'Mexico City',
+    Mexico: 'Mexico City',
     Bangkok: 'Bangkok',
     LosAngeles: 'Los Angeles',
     Shanghai: 'Shanghai',
