@@ -26,19 +26,31 @@ initStyle();
 MLHandle();
 
 export function MLHandle(callback: (value: boolean) => boolean = null) {
-  document.body.addEventListener("click", (e) => {
+  document.body.addEventListener("click", handleEvent);
+  document.body.addEventListener("keydown", handleEvent);
+
+  function handleEvent(e: Event) {
     const target = e.target as HTMLElement;
+
+    if (e.type === "keydown" && (e as KeyboardEvent).key === "Enter") {
+      target.click();
+    } else if (e.type === "keydown" && (e as KeyboardEvent).key !== "Enter") {
+      return;
+    }
 
     if (isModalButtonClicked(target) || target === triggeredElement) {
       if (callback) {
-        callback(target.closest("[data-action]") !== null);
+        const isActionButton = target.closest("[data-action]") !== null;
+        callback(isActionButton);
       }
       hide(triggeredElement);
     }
-  });
+  }
+
   escapeHandler();
   trapFocus();
 }
+
 function escapeHandler() {
   document.addEventListener("keydown", (e) => {
     e.preventDefault();
@@ -74,9 +86,21 @@ function trapFocus() {
   });
 }
 
-export async function MLAjaxCall(url: string) {
+export async function MLAjaxProcess(
+  url: string,
+  target: HTMLElement,
+  formatDisplay: (result: any) => { title: string; message: string }
+) {
   const result = await makeCall(url);
-  return result;
+  const { title, message } = formatDisplay(result);
+
+  if (!target.dataset.trigger.includes("custom")) {
+    createModal(target, message, title);
+  }
+}
+
+export function isSaid(target: HTMLElement) {
+  return target.classList.contains("said");
 }
 
 function handleTriggerClick(triggerButton: HTMLElement) {
@@ -130,16 +154,6 @@ function defaultModals(target: HTMLElement) {
   const title = target.dataset.title;
 
   if (message && !target.classList.contains("said")) {
-    createModal(target, message, title);
-  }
-}
-
-export function MLAjaxDisplay(
-  target: HTMLElement,
-  message: string,
-  title: string
-) {
-  if (!target.dataset.trigger.includes("custom")) {
     createModal(target, message, title);
   }
 }

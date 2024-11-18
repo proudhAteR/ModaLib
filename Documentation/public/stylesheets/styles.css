@@ -3,6 +3,9 @@
   --nav: #76b5ce;
   --prop: #bb4747;
 }
+html {
+  scroll-behavior: smooth !important;
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -10,7 +13,7 @@ body {
   background-color: #f5fbfd;
 }
 
-.list-group-item-action{
+.list-group-item-action {
   background-color: #fafcfc !important;
 }
 
@@ -24,13 +27,6 @@ h6 {
 }
 .section-title {
   padding-bottom: 10px;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  color: inherit;
 }
 
 a {
@@ -51,7 +47,7 @@ footer {
   bottom: 0;
   transform: translateX(-50%);
 }
-pre{
+pre {
   margin-bottom: 24px !important;
 }
 .sidebar {

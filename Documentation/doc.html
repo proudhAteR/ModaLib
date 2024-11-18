@@ -19,14 +19,15 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
 
     <link href="./public/stylesheets/vendor/prism.css" rel="stylesheet">
-    <link href="./public/stylesheets/styles.css" rel="stylesheet">
     <link href="../ModaLib/public/stylesheets/styles.css" rel="stylesheet">
+    <link href="./public/stylesheets/styles.css" rel="stylesheet">
+
 
 
 
     <script src="./public/javascripts/vendor/prism.js" type="module"></script>
     <script src="../ModaLib/public/javascripts/main.js" type="module"></script>
-    <script src="./public/javascripts/user.js" type="module"></script>
+    <script src="./public/javascripts/doc.js" type="module"></script>
 
 </head>
 
@@ -159,7 +160,8 @@
                                 display as
                                 a message.
                                 <p>
-                                    This value is set to <strong>OK</strong> by default.
+                                    This value is set to <strong>OK</strong> by default for the action button and to
+                                    <strong>Cancel</strong> for the second button.
                                 </p>
                             </li>
 
@@ -216,9 +218,10 @@
 
                                 <pre class="border rounded focus-ring">
                                     <code class="language-html"><!--
-                                <button id="button_id" data-animation="slide" 
-                                data-title="Title" data-trigger="confirm" 
-                                class="btn modal-confirm-btn" data-say="message">Try</button>
+                                <button id="button_id1" data-animation="slide" data-title="Title" data-trigger="confirm"
+                                    class="btn modal-confirm-btn" data-say="message">
+                                    Try
+                                </button>
                                 --></code>
 
                                 </pre>
@@ -278,7 +281,8 @@
                                         </p>
                                         <div class="btn_grp">
                                             <div class="grp_content">
-                                                <a role="button" tabindex="2" href="https://youtu.be/xvFZjo5PgG0?si=IQ55JYCgmDhokMho"
+                                                <a role="button" tabindex="2"
+                                                    href="https://youtu.be/xvFZjo5PgG0?si=IQ55JYCgmDhokMho"
                                                     class="btn modal-second-btn">
                                                     Learn More
                                                 </a>
@@ -300,38 +304,33 @@
                                     AJAX modals
                                 </h3>
                                 <p>
-                                    If you want to make AJAX calls to an API and display them into one of the library
-                                    modal, you'll have to import two functions:
-                                <ol>
-                                    <li>
-                                        <strong class="prop">
-                                            MLAjaxCall
-                                        </strong>
-                                        to make the call to the api and get the values it returns.
-                                    </li>
-                                    <li>
-                                        <strong class="prop">
-                                            MLAjaxDisplay
-                                        </strong>
-                                        to set which results you want as the modal title and message.
-                                    </li>
-                                </ol>
+                                    If you want to make AJAX calls to an API and display its result into one of the
+                                    library
+                                    modal, you'll have to import the MLAjaxProcess function. To use it you'll have to
+                                    pass it your url, your target and a result destructured result object containing the
+                                    message and the title in the modal.
                                 </p>
 
                                 <pre class="border rounded focus-ring">
                                     <code class="language-js"><!--
                                         import {
-                                            MLAjaxCall,
-                                            MLAjaxDisplay
+                                            MLAjaxProcess
                                         } from "ModaLib path"
 
                                         const url = 'https://yourAPIUrlhere';
                                         const button = document.querySelector("#button_id");
 
-                                        button.addEventListener("click", async () => { 
-                                            const result = await MLAjaxCall(url);
+                                        button.addEventListener("click", async () => {
 
-                                            MLAjaxDisplay(button, result.titleElement, result.messageElement);
+                                            MLAjaxProcess(
+                                                url,
+                                                button,
+                                                (result) => ({
+                                                    message: result.message,
+                                                    title: result.title
+                                                })
+                                            );
+
                                         });
                                    --></code>
                                 </pre>
@@ -370,7 +369,7 @@
     </main>
     <footer class="pb-1 text-center">
         <small>
-            © Copyright Modal Template 2024
+            © Copyright ModaLib 2024
         </small>
     </footer>
 </body>
