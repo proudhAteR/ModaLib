@@ -1,3 +1,4 @@
+@import "root.css";
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -30,7 +31,7 @@
 }
 
 .show_fade {
-  display: flex;
+  display: flex !important;
   animation: fadeIn var(--animation-duration) ease-in-out;
 }
 .animate {
