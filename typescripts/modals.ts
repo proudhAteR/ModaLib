@@ -68,7 +68,7 @@ export function generateModal(trigger: HTMLElement) {
     s = "";
     buttons = options ? options.split(",") : buttons;
   } else {
-    buttons = ["", options?.split(",")[0] ?? "Close"];
+    buttons = ["", options?.split(",")[0] ?? "OK"];
   }
 
   return `

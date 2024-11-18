@@ -52,7 +52,7 @@ export function generateModal(trigger) {
         buttons = options ? options.split(",") : buttons;
     }
     else {
-        buttons = ["", options?.split(",")[0] ?? "Close"];
+        buttons = ["", options?.split(",")[0] ?? "OK"];
     }
     return `
     <div data-animation ="${trigger.dataset.animation}" class="modal-container by:${trigger.id} show_${trigger.dataset.animation} said">
