@@ -14,6 +14,8 @@ MLHandle();
 export function MLHandle(callback = null) {
     document.body.addEventListener("click", handleEvent);
     document.body.addEventListener("keydown", handleEvent);
+    escapeHandler();
+    trapFocus();
     function handleEvent(e) {
         const target = e.target;
         if (e.type === "keydown" && e.key === "Enter") {
@@ -22,7 +24,7 @@ export function MLHandle(callback = null) {
         else if (e.type === "keydown" && e.key !== "Enter") {
             return;
         }
-        if (isModalButtonClicked(target) || target === triggeredElement) {
+        if (isModalButtonClicked(target) || isModalClicked(target)) {
             if (callback) {
                 const isActionButton = target.closest("[data-action]") !== null;
                 callback(isActionButton);
@@ -30,11 +32,12 @@ export function MLHandle(callback = null) {
             hide(triggeredElement);
         }
     }
-    escapeHandler();
-    trapFocus();
+}
+function isModalClicked(target) {
+    return target === triggeredElement;
 }
 function escapeHandler() {
-    document.addEventListener("keydown", (e) => {
+    document.body.addEventListener("keydown", (e) => {
         e.preventDefault();
         if (e.key === "Escape") {
             if (triggeredElement) {

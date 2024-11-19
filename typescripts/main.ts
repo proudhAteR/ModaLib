@@ -29,6 +29,8 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
   document.body.addEventListener("click", handleEvent);
   document.body.addEventListener("keydown", handleEvent);
 
+  escapeHandler();
+  trapFocus();
   function handleEvent(e: Event) {
     const target = e.target as HTMLElement;
 
@@ -38,7 +40,7 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
       return;
     }
 
-    if (isModalButtonClicked(target) || target === triggeredElement) {
+    if (isModalButtonClicked(target) || isModalClicked(target)) {
       if (callback) {
         const isActionButton = target.closest("[data-action]") !== null;
         callback(isActionButton);
@@ -46,13 +48,14 @@ export function MLHandle(callback: (value: boolean) => boolean = null) {
       hide(triggeredElement);
     }
   }
+}
 
-  escapeHandler();
-  trapFocus();
+function isModalClicked(target: HTMLElement) {
+  return target === triggeredElement;
 }
 
 function escapeHandler() {
-  document.addEventListener("keydown", (e) => {
+  document.body.addEventListener("keydown", (e) => {
     e.preventDefault();
     if (e.key === "Escape") {
       if (triggeredElement) {
