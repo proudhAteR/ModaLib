@@ -95,7 +95,7 @@ export async function MLAjaxProcess(
   const { title, message } = formatDisplay(result);
 
   if (!target.dataset.trigger.includes("custom")) {
-    createModal(target, message, title);
+    createModal(target, title, message);
   }
 }
 

@@ -62,7 +62,7 @@ export async function MLAjaxProcess(url, target, formatDisplay) {
     const result = await makeCall(url);
     const { title, message } = formatDisplay(result);
     if (!target.dataset.trigger.includes("custom")) {
-        createModal(target, message, title);
+        createModal(target, title, message);
     }
 }
 export function isSaid(target) {

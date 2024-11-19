@@ -46,8 +46,8 @@ button.addEventListener("click", async () => {
             url,
             button,
             (result) => ({
-                message: result.results[0].name,
-                title: `${result.results[0].population} habitants`,
+                title: result.results[0].name,
+                message: `${result.results[0].population} habitants`,
             })
         );
 
