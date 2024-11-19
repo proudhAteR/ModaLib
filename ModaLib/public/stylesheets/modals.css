@@ -49,6 +49,7 @@
 .title_grp {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 12px;
 }
 .grp_content {
   display: flex;

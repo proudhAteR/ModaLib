@@ -1,7 +1,7 @@
 @import "../../../ModaLib/public/stylesheets/font.css";
 :root {
   --nav: #76b5ce;
-  --prop: #bb4747;
+  --prop: #de6563;
 }
 html {
   scroll-behavior: smooth !important;
